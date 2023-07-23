@@ -1,9 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Footer/Footer';
+import NavBar from './Navbar/NavBar';
 import './globals.css' // Archivos CSS
 // import type { Metadata } from 'next' (*) no es necesario
 import { Inter } from 'next/font/google' // Fuente de letras de google
-import { Container } from '@/app/components/bootstrap';
-import NavBar from './NavBar';
+import SessionProvider from "./SessionProvider"
+
 // Fuente de letras como inter
 const inter = Inter({ subsets: ['latin'] })
 //#
@@ -23,12 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <SessionProvider>
           <NavBar/>
-          <main>          
-            <Container className='py-4'>
-              {children}
-            </Container>
+          <main className='m-auto min-w-[300px] max-w-7x1 p-4'>          
+            {children}
           </main>
+          <Footer/>
+        </SessionProvider>
       </body> 
     </html>
   )

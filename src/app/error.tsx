@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "react-bootstrap";
+
 // Error de cargas, datos, etc
 interface ErrorPageProps {
     error: Error,
@@ -11,7 +11,7 @@ export default function Error({error,reset}: ErrorPageProps){
         <div>
             <h1>¡¡Error!!</h1>
             <p>Algo salio mal</p>
-            <Button onClick={reset}>Intertar de nuevo</Button>
+            <button className="btn btn-error btn-block" onClick={reset}>Intertar de nuevo</button>
         </div>
     );
 }
