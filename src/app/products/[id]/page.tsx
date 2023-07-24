@@ -5,11 +5,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation"
 import { cache } from "react";
 import AddToCartButton from "./AddToCartButton";
-import { incrementProductQuantity } from "./action";
+import { incrementProductQuantity } from "./actions";
 
 interface ProductPageProps {
     params: {
-        id:string,
+        id: string,
     }
 }
 
@@ -19,10 +19,11 @@ const getProduct = cache(async (id: string) => {
     return product;
 })
 
-export async function generateMetada(
-    {params: {id}}: ProductPageProps
-): Promise<Metadata> {
+export async function generateMetada({
+    params: { id },
+}: ProductPageProps): Promise<Metadata> {
     const product = await getProduct(id);
+
     return{
         title: product.name + " - NextJS",
         description: product.description,
