@@ -9,7 +9,7 @@ import { incrementProductQuantity } from "./actions";
 
 interface ProductPageProps {
     params: {
-        id: string,
+        id: string;
     }
 }
 
@@ -19,14 +19,14 @@ const getProduct = cache(async (id: string) => {
     return product;
 })
 
-export async function generateMetada({
+export async function generateMetadata({
     params: { id }}: ProductPageProps
 ): Promise<Metadata> {
     const product = await getProduct(id);
 
     return{
-        title: product.name + " - NextJS",
-        description: product.description,
+        title: (product.name) + " - NextJS",
+        description: (product.description),
         openGraph: {
             images: [{url: product.imageURL}],
         },
